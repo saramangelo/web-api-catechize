@@ -1,27 +1,13 @@
+// query selectors
 
-var timer;
-var timerCount;
+// variables
 
+// arrays
 
 // Object with properties for questions and answers
 
 
-// timer
+// timer (setInterval function), eventListener for button click
 
-function startTimer() {
-    timer = setInterval(function () {
-        timerCount--;
-        timerElement.textContent = timerCount;
-        if (timerCount >= 0) {
-            if (isWin && timerCount > 0) {
+// 
 
-                clearInterval(timer);
-                winGame();
-            }
-        }
-        if (timerCount === 0) {
-            clearInterval(timer);
-            loseGame();
-        }
-    }, 1000);
-}
