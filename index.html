@@ -131,8 +131,14 @@
     <!-- group high scores and input section for entering name in one div (aside) -->
 <div>
     <h3>High Scores</h3>
-    <p>This is a link to high scores</p>
-    <input type="submit">
+    <p>This is a link to high scores
+        <form>
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname" value=""><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname" value=""><br><br>
+            <input type="submit" value="Submit">
+          </form>
 </div>
 
     <script src="Assets/script.js"></script>
