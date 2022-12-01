@@ -1,7 +1,10 @@
 // query selectors
-
+var timerElement = document.querySelector(".timer-count");
+var startButton = document.querySelector(".start-button");
 // variables
-
+var timer;
+var timerCount;
+var score;
 // var questions
 // var answers
 
@@ -13,7 +16,15 @@
 
 // timer (setInterval function), eventListener for button click
 
+
 // reference this to save data:
+
+function startQuiz() {
+    timerCount = 60;
+    startTimer();
+}
+
+
 
 // function(event) {
 //     event.preventDefault();
@@ -35,8 +46,25 @@
 
 
 // init(); // needed to display high scores 
+startButton.addEventListener("click", startQuiz);
+function startTimer() {
 
-var startButton = document.querySelector(".start-button");
+    timer = setInterval(function () {
+        timerCount--;
+        timerElement.textContent = timerCount;
+    //     if (timerCount >= 0) {
+    //         if (score && timerCount > 0) {
+           
+    //             clearInterval(timer);
+    //         }
+    //     }
+    //     if (timerCount === 0) {
+         
+    //         clearInterval(timer);
+    //     }
+    }, 1000);
+}
+
 
 function startQuiz(){
 
