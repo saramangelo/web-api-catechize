@@ -72,7 +72,11 @@ function startQuiz(){
 
 startButton.addEventListener("click", startQuiz);
 
+// PSUEDOCODE
 // 1. click start button, everything disappears
 // 2. click start button, question pops up
 // 3. click start button, timer starts
 // in terms of counter, every second, I want to remove 1 from some count variable. 
+// first function - startQuiz, first thing inside should be fx hide welcome message and fx show questions ()
+// fx check answer,
+// make as many fx as possible, separates code
