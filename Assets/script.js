@@ -36,4 +36,6 @@
 
 // init(); // needed to display high scores 
 
+var startButton = document.querySelector(".start-button");
+
 
