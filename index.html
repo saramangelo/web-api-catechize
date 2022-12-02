@@ -12,7 +12,7 @@
     <div>
         <h1>Web API Quiz</h1>
         <p>Welcome to the quiz.</p>
-        <button class="start-button">This is a button.</button>
+        <button class="start-button">Start Button</button>
     </div>
     
 <!-- timer -->
@@ -24,7 +24,7 @@
 
     <!-- group all questions in one div (h1, p, buttons)-->
 <!-- make them hidden to toggle hidden and shown when needed -->
-    <fieldset data-state="hidden">
+    <fieldset id="quiz" data-state="hidden">
       <!-- grab ref from legend  -->
         <legend>Question</legend> 
     
@@ -61,10 +61,8 @@
     <h3>High Scores</h3>
     <p>This is a link to high scores
         <form>
-            <label for="fname">First name:</label><br>
-            <input type="text" id="fname" name="fname" value=""><br>
-            <label for="lname">Last name:</label><br>
-            <input type="text" id="lname" name="lname" value=""><br><br>
+            <label for="fname">Initials</label><br>
+            <input type="text" id="initials" name="initials" value=""><br>
             <input type="submit" value="Submit">
           </form>
 </div>

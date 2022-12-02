@@ -5,72 +5,60 @@ var startButton = document.querySelector(".start-button");
 var timer;
 var timerCount;
 var score;
-// var questions
-// var answers
-
-
-// arrays
 
 // Object with properties for questions and answers
+var quiz = 
+      [
+        {
+          question: "What is the web browser?",
+          choices: ["A program used to access information on the World Wide Web", "A place where spiders meet up", "Google", "None of the above"],
+          answer: 0
+        },
+        
+        {
+          question: "What does 'URL' stand for?",
+          choices: ["U R Lazy", "Ugly Robot Language", "Uninformed Relatable Lists", "Uniform Resource Locator"],
+          answer: 3
+        },
+        {
+          question: "Where do EvenListeners belong on the JavaScript file?",
+          choices: ["At the top", "Only inside for loops", "At the bottom", "They don't belong on the JavaScript file"],
+          answer: 2
+        },
+        {
+          question: "We can manipulate the HTML elements on the page via what?",
+          choices: ["The DOT", "The DOM", "The DON", "The MOD"],
+          answer: 1
+        }
+        
+      ];
 
 
-// timer (setInterval function), eventListener for button click
-
-
-// reference this to save data:
-
+// timer (setInterval function)
 function startQuiz() {
     timerCount = 60;
     startTimer();
 }
+
+// reference this to save data:
+
+
 
 
 
 // function(event) {
 //     event.preventDefault();
     
-//       // TODO: Create user object from submission
-  
-//     var userObject = {
-//       firstName: firstNameInput.value.trim(),
-//       lastName: lastNameInput.value.trim(),
-//       email: emailInput.value.trim(),
-//       password: passwordInput.value.trim()
-//     };
 
-//     // TODO: Set new submission to local storage 
-  
-//   localStorage.setItem("userObject", JSON.stringify(userObject));
-  
-//   });
 
 
 // init(); // needed to display high scores 
+
+// eventListener - start button
 startButton.addEventListener("click", startQuiz);
-function startTimer() {
-
-    timer = setInterval(function () {
-        timerCount--;
-        timerElement.textContent = timerCount;
-    //     if (timerCount >= 0) {
-    //         if (score && timerCount > 0) {
-           
-    //             clearInterval(timer);
-    //         }
-    //     }
-    //     if (timerCount === 0) {
-         
-    //         clearInterval(timer);
-    //     }
-    }, 1000);
-}
+console.log(startButton);
 
 
-function startQuiz(){
-
-}
-
-startButton.addEventListener("click", startQuiz);
 
 // PSUEDOCODE
 // 1. click start button, everything disappears
