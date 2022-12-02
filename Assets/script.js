@@ -1,5 +1,5 @@
 // query selectors
-var timerElement = document.querySelector(".timer-count");
+var timerEl = document.querySelector(".timer-count");
 var startButton = document.querySelector(".start-button");
 // variables
 var timer;
@@ -35,16 +35,36 @@ var quiz =
 
 
 // timer (setInterval function)
-function startQuiz() {
-    timerCount = 60;
-    startTimer();
+function countdown() {
+    var timeLeft = 60;
+var timeInterval = setInterval(function () {
+    timerEl.textContent = timeLeft--;
+    startButton.disabled = true;
+    if (timeLeft === 0) {
+      // Stops execution of action at set interval
+      clearInterval(timeInterval);
+
+    }
+  }, 1000);
 }
 
+// start button (clear page function)
+var container = document.querySelector(".quiz-container");
+
+startButton.addEventListener("click", function() {
+    container.getAttribute("data-state");
+
+    if (state === "hidden") {
+      element.setAttribute("data-state", "shown");
+      element.textContent = '';
+      element.setAttribute("data-state", "hidden");
+     
+    }
+  }
+);
+
+
 // reference this to save data:
-
-
-
-
 
 // function(event) {
 //     event.preventDefault();
@@ -55,8 +75,9 @@ function startQuiz() {
 // init(); // needed to display high scores 
 
 // eventListener - start button
-startButton.addEventListener("click", startQuiz);
-console.log(startButton);
+startButton.addEventListener("click", countdown);
+
+
 
 
 
