@@ -13,7 +13,7 @@ var score;
 var quiz = [
   {
     question: "What is the web browser?",
-    choices: [
+    choicesOne: [
       "A program used to access information on the World Wide Web",
       "A place where spiders meet up",
       "Google",
@@ -70,7 +70,7 @@ function renderNextQuestion() {
   // create for loop that creates lis, appends them to ul
   for (var i =0; i < quiz.length; i++){
     var liElement = document.createElement("li");
-    liElement.textContent = quiz.choices;
+    liElement.textContent = quiz[i].choicesOne[i];
     liElement.setAttribute("data-index", i);
     answerEl.appendChild(liElement);
     console.log(liElement);
