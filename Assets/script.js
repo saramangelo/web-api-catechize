@@ -13,7 +13,7 @@ var score;
 var quiz = [
   {
     question: "What is the web browser?",
-    choicesOne: [
+    choices: [
       "A program used to access information on the World Wide Web",
       "A place where spiders meet up",
       "Google",
@@ -67,9 +67,18 @@ function renderNextQuestion() {
   // create for loop that creates lis, appends them to ul
   // create element in for loop, update text content, append to answer container
 
-  for (var i = 0; i < quiz.length; i++) {
+  // for (var i = 0; i < quiz.length; i++) {
+  //   var liElement = document.createElement("li");
+  //   liElement.textContent = quiz[i].choicesOne[i];
+  //   liElement.setAttribute("data-index", i);
+  //   answerEl.appendChild(liElement);
+  //   console.log(liElement);
+  // }
+
+  for (var i = 0; i < quiz[0].choices.length; i++) {
+    console.log(quiz[i].choices)
     var liElement = document.createElement("li");
-    liElement.textContent = quiz[i].choicesOne[i];
+    liElement.textContent = quiz[0].choices[i];
     liElement.setAttribute("data-index", i);
     answerEl.appendChild(liElement);
     console.log(liElement);
@@ -81,6 +90,8 @@ function startQuiz() {
   welcomeContainer.setAttribute("class", "hidden");
   renderNextQuestion();
 }
+
+// timerCountDown -= 10
 
 // start button (clear page function)
 
