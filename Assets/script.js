@@ -1,4 +1,21 @@
 // PSUEDOCODE
+// Below is from Module 4 Challenge on BCS:
+// WHEN I click the start button
+    // add event listener button click
+// THEN a timer starts and I am presented with a question
+    // function renderNextQuestion()
+// WHEN I answer a question
+    // make answer choices buttons
+// THEN I am presented with another question
+    // function renderNextQuestion()
+// WHEN I answer a question incorrectly
+    // compare answers selected to answers in var array
+// THEN time is subtracted from the clock
+    // function time--
+// WHEN all questions are answered or the timer reaches 0
+// THEN the game is over
+// WHEN the game is over
+// THEN I can save my initials and score
 // 1. click start button, everything disappears (css display none)
 // a. click start button, question pops up
 // b. click start button, timer starts
@@ -98,6 +115,12 @@ function renderNextQuestion() {
     liElement.setAttribute("data-index", i);
     answerEl.appendChild(liElement);
     console.log(liElement);
+
+    var button = document.createElement("button");
+    button.textContent = quiz[0].choices[i];
+    liElement.appendChild(button);
+    answerEl.appendChild(liElement);
+    console.log(button);
 
     }
 }
