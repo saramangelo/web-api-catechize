@@ -16,6 +16,7 @@
 // THEN the game is over
 // WHEN the game is over
 // THEN I can save my initials and score
+
 // 1. click start button, everything disappears (css display none)
 // a. click start button, question pops up
 // b. click start button, timer starts
@@ -50,6 +51,7 @@ var answerEl = document.querySelector(".answer-container");
 var timer;
 var timerCount;
 var score;
+var questionIndex = 0;
 
 // array of objects with properties for questions and answers
 var quiz = [
@@ -96,7 +98,7 @@ function countdown() {
   var timeLeft = 60;
   var timeInterval = setInterval(function () {
     timerEl.textContent = timeLeft--;
-    startButton.disabled = true;
+    // startButton.disabled = true;
     if (timeLeft === 0) {
       // Stops execution of action at set interval
       clearInterval(timeInterval);
@@ -104,8 +106,10 @@ function countdown() {
   }, 1000);
 }
 
-function renderNextQuestion() {
-  questionEl.textContent = quiz[0].question;
+function renderFirstQuestion() {
+      // grabbing index of next question
+  var currentQuestion = quiz[questionIndex].question;
+  questionEl.textContent = currentQuestion;
   // create for loop that creates lis, appends them to ul
   // create element in for loop, update text content, append to answer container
   for (var i = 0; i < quiz[0].choices.length; i++) {
@@ -123,6 +127,26 @@ function renderNextQuestion() {
     console.log(button);
 
     }
+
+    questionIndex++;
+    console.log(questionIndex);
+
+}
+
+  function renderNextQuestion(event){
+    var buttonClicked = event.target;
+    // if button is clicked, render next question
+    // use for loop logic above 
+    // if matches class name we attribute (p tags - choices)
+    // createElement, appendChild, conditional statements
+    console.log(buttonClicked);
+  }
+
+// event listener waiting for choices (choices.addEventListener - to run renderNextQuestion)
+
+
+function checkAnswer(){
+
 }
 
 
@@ -130,7 +154,8 @@ function renderNextQuestion() {
 function startQuiz() {
   countdown();
   welcomeContainer.setAttribute("class", "hidden");
-  renderNextQuestion();
+  renderFirstQuestion();
+
 }
 
 
