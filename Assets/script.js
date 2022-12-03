@@ -1,15 +1,39 @@
+// PSUEDOCODE
+// 1. click start button, everything disappears (css display none)
+// 2. click start button, question pops up
+// 3. click start button, timer starts
+// in terms of counter, every second, I want to remove 1 from some count variable.
+// first function - startQuiz, first thing inside should be fx hide welcome message and fx show questions ()
+// fx check answer,
+// make as many fx as possible, separates code
+
+// timerCountDown -= 10
+
+// start button (clear page function)
+
+// reference this to save data:
+
+// function(event) {
+//     event.preventDefault();
+
+// init(); // needed to display high scores
+
+
+
+
 // query selectors
 var timerEl = document.querySelector(".timer-count");
 var startButton = document.querySelector(".start-button");
 var welcomeContainer = document.querySelector("#welcome-container");
 var questionEl = document.querySelector(".question");
 var answerEl = document.querySelector(".answer-container");
+
 // variables
 var timer;
 var timerCount;
 var score;
 
-// Object with properties for questions and answers
+// array of objects with properties for questions and answers
 var quiz = [
   {
     question: "What is the web browser?",
@@ -66,15 +90,6 @@ function renderNextQuestion() {
   questionEl.textContent = quiz[0].question;
   // create for loop that creates lis, appends them to ul
   // create element in for loop, update text content, append to answer container
-
-  // for (var i = 0; i < quiz.length; i++) {
-  //   var liElement = document.createElement("li");
-  //   liElement.textContent = quiz[i].choicesOne[i];
-  //   liElement.setAttribute("data-index", i);
-  //   answerEl.appendChild(liElement);
-  //   console.log(liElement);
-  // }
-
   for (var i = 0; i < quiz[0].choices.length; i++) {
     console.log(quiz[i].choices)
     var liElement = document.createElement("li");
@@ -82,34 +97,19 @@ function renderNextQuestion() {
     liElement.setAttribute("data-index", i);
     answerEl.appendChild(liElement);
     console.log(liElement);
-  }
+
+    }
 }
 
+
+// start quiz, start countdown, clear welcome page, render questions
 function startQuiz() {
   countdown();
   welcomeContainer.setAttribute("class", "hidden");
   renderNextQuestion();
 }
 
-// timerCountDown -= 10
 
-// start button (clear page function)
-
-// reference this to save data:
-
-// function(event) {
-//     event.preventDefault();
-
-// init(); // needed to display high scores
 
 // eventListener - start button
 startButton.addEventListener("click", startQuiz);
-
-// PSUEDOCODE
-// 1. click start button, everything disappears (css display none)
-// 2. click start button, question pops up
-// 3. click start button, timer starts
-// in terms of counter, every second, I want to remove 1 from some count variable.
-// first function - startQuiz, first thing inside should be fx hide welcome message and fx show questions ()
-// fx check answer,
-// make as many fx as possible, separates code
