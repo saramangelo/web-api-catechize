@@ -63,8 +63,18 @@ function countdown() {
 }
 
 function renderNextQuestion() {
-  questionEl.textContent = quiz[0].question;
+
+
+
+  questionEl.textContent = quiz[0].question
   // create for loop that creates lis, appends them to ul
+  for (var i =0; i < quiz.length; i++){
+    var liElement = document.createElement("li");
+    liElement.textContent = quiz.choices;
+    liElement.setAttribute("data-index", i);
+    answerEl.appendChild(liElement);
+    console.log(liElement);
+  }
   // create element in for loop, update text content, append to answer container
 }
 
