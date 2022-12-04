@@ -18,31 +18,29 @@
 // a. click start button, question pops up
 // b. click start button, timer starts
 // in terms of counter, every second, I want to remove 1 from some count variable. remove 10 seconds from incorrect answer.
-// 2.
+// 2. click on answer choice, next question pops up
+// a. if question is wrong, alert user, remove 10 seconds
+// b. if question is right, alert user
+// 3. if timer is up or if user completes 4 questions, quiz ends
+// 4. at end of quiz, screen with score and enter initials is viewed
+// 5. high scores is a link that stores data and can be retrieved/viewed with score + initials
+// CLASS NOTES:
 // first function - startQuiz, first thing inside should be fx hide welcome message and fx show questions ()
 // fx check answer,
 // make as many fx as possible, separates code
-// if button is clicked, render next question
-// use for loop logic above
-// if matches class name we attribute (p tags - choices), fx render next question
-// createElement, appendChild, conditional statements
-
+// event.target - if matches class name we attribute (p tags - choices), fx render next question
+// createElement, appendChild, conditional statements?
 // event listener waiting for choices (choices.addEventListener - to run renderQuestion)
 // start quiz, start countdown, clear welcome page, render questions
 // check if answer selected matches correct answer
 // save score
 // save initials
 // save and print score+initials
-
 // timerCountDown -= 10
-
 // start button (clear page function)
-
 // reference this to save data:
-
 // function(event) {
 //     event.preventDefault();
-
 // init(); // needed to display high scores
 
 
