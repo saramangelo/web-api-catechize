@@ -1,17 +1,14 @@
-// PSUEDOCODE
+// PSEUDOCODE
 // Below is from Module 4 Challenge on BCS:
 // WHEN I click the start button
 // add event listener button click
 // THEN a timer starts and I am presented with a question
-// function renderNextQuestion()
 // WHEN I answer a question
-// make answer choices buttons
 // THEN I am presented with another question
-// function renderNextQuestion()
 // WHEN I answer a question incorrectly
-// compare answers selected to answers in var array
+// (compare answers selected to answers in var array)
 // THEN time is subtracted from the clock
-// function time--
+// (function time--)
 // WHEN all questions are answered or the timer reaches 0
 // THEN the game is over
 // WHEN the game is over
