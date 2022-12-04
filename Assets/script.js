@@ -54,7 +54,6 @@ var answerEl = document.querySelector(".answer-container");
 var questionContainer = document.querySelector(".question-container");
 var formEl = document.querySelector("#initials");
 var inputEl = document.querySelector("#input");
-var yourScore = document.querySelector("#your-score");
 var endScreenEl = document.querySelector("#end-screen");
 
 // VARIABLES
@@ -201,20 +200,18 @@ function saveScore (){
     initials: initials,
   };
   console.log(newScore);
-
-
-
   localStorage.setItem("high scores", JSON.stringify(newScore));
 }
 
   // create new fx get scores, tie this to a link that I create, when user clicks this link, render what you get from local storage onto the screen (create elements)
 
-  function getScores(){
-    var highScoresInitials = localStorage.getItem("") || "[]";
+  formEl.addEventListener("submit", function getScores(){
+    var highScoresInitials = localStorage.getItem("highScoreInitials") || "[]";
     highScoresInitials = JSON.parse(highScoresInitials);
      highScores.push(newScore);
      console.log(highScoresInitials)
-    }
+    });
+
   
 
 // EVENT LISTENER - START BUTTON, CHECK ANSWER, END GAME
