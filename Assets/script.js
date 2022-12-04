@@ -123,11 +123,11 @@ function startQuiz() {
 // timer
 function countdown() {
   var timeInterval = setInterval(function () {
-    timerEl.textContent = "Time left: " + timeLeft--;
+    timeLeft--;
+    timerEl.textContent = "Time left: " + timeLeft;
     if (timeLeft === 0) {
       // Stops execution of action at set interval
       clearInterval(timeInterval);
-      timerEl.innerHTML = "";
     }
   }, 1000);
 }
@@ -165,6 +165,7 @@ function checkAnswer(event) {
   if (questionIndex > quiz.length - 1) {
     questionContainer.setAttribute("class", "hidden");
     formEl.classList.remove("hidden");
+    timerEl.setAttribute("class", "hidden");
     endgame();
   } else {
     renderQuestion(questionIndex);
@@ -178,7 +179,7 @@ function checkAnswer(event) {
 // FUNCTION TO GET, SET HIGH SCORE AND INITIALS
 
 function endgame() {
-  // event.preventDefault();
+
   console.log("got clicked");
 
   endScreenEl.classList.remove("hidden");
@@ -199,12 +200,12 @@ function saveScore() {
 
 // create new fx get scores, tie this to a link that I create, when user clicks this link, render what you get from local storage onto the screen (create elements)
 
-formEl.addEventListener("submit", function getScores() {
-  var highScoresInitials = localStorage.getItem("highScoreInitials") || "[]";
-  highScoresInitials = JSON.parse(highScoresInitials);
-  highScores.push(newScore);
-  console.log(highScoresInitials);
-});
+// formEl.addEventListener("submit", function getScores() {
+//   var highScoresInitials = localStorage.getItem("highScoreInitials") || "[]";
+//   highScoresInitials = JSON.parse(highScoresInitials);
+//   highScores.push(newScore);
+//   console.log(highScoresInitials);
+// });
 
 // EVENT LISTENER - START BUTTON, CHECK ANSWER, END GAME
 
