@@ -56,6 +56,7 @@ var answerEl = document.querySelector(".answer-container");
 var questionContainer = document.querySelector(".question-container");
 
 
+
 // VARIABLES
 var timer;
 var timerCount;
@@ -165,12 +166,38 @@ var elementClicked = event.target;
     console.log(elementClicked.value);
 // want to take value of the button (elementClicked) and compare it to quiz[questionIndex].answer then subtract time, move on to next question
 // compare string of button clicked to answer in object array. if this is equal to this, then deduct 10 seconds off, then go to next question
-// questionIndex++;
     questionIndex++;
     renderQuestion(questionIndex);
 }
 
+// FUNCTION TO STORE, GET, RENDER HIGH SCORE ON PAGE
 
+// function saveHighScores(){
+//   var highScores = []
+// ; localStorage.setItem("highScores", JSON.stringify(highScores));}
+// function renderHighScores() {
+//   // Use JSON.parse() to convert text to JavaScript object
+//   var highScores = JSON.parse(localStorage.getItem("highScore"));
+//   // Check if data is returned, if not exit out of the function
+//   if (highScore !== null) {
+//  var highScores = document.querySelector(".high-scores").innerHTML
+//   } else {
+//     return;
+//   }
+// }
+
+// saveButton.addEventListener("click", function(event) {
+// event.preventDefault();
+// saveHighScores();
+// renderHighScores();
+// });
+
+// // The init() function fires when the page is loaded 
+// function init() {
+//   // When the init function is executed, the code inside renderLastGrade function will also execute
+//   renderHighScores();
+// }
+// init();
 
 
 
