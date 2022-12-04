@@ -62,6 +62,7 @@ var timer;
 var timerCount;
 var score;
 var questionIndex = 0;
+var timeLeft = 60;
 
 // ARRAY OF OBJECTS WITH QUESTIONS, CHOICES, CORRECT ANSWER
 var quiz = [
@@ -73,7 +74,7 @@ var quiz = [
       "Google",
       "None of the above",
     ],
-    answer: 0,
+    answer: "A program used to access information on the World Wide Web",
   },
 
   {
@@ -84,7 +85,7 @@ var quiz = [
       "Uninformed Relatable Lists",
       "Uniform Resource Locator",
     ],
-    answer: 3,
+    answer: "Uniform Resource Locator",
   },
   {
     question: "Where do EvenListeners belong on the JavaScript file?",
@@ -94,12 +95,12 @@ var quiz = [
       "At the bottom",
       "They don't belong on the JavaScript file",
     ],
-    answer: 2,
+    answer: "At the bottom",
   },
   {
     question: "We can manipulate the HTML elements on the page via what?",
     choices: ["The DOT", "The DOM", "The DON", "The MOD"],
-    answer: 1,
+    answer: "The DOM",
   },
 ];
 
@@ -123,7 +124,6 @@ function startQuiz() {
 
 // timer
 function countdown() {
-  var timeLeft = 60;
   var timeInterval = setInterval(function () {
     timerEl.textContent = timeLeft--;
     // startButton.disabled = true;
@@ -162,8 +162,15 @@ console.log(answerEl);
 var elementClicked = event.target;
 
   if (elementClicked.matches("button")) 
-    var answerText = elementClicked.value;
-    console.log(elementClicked.value);
+    var answerText = elementClicked.textContent;
+    console.log(answerText);
+    if(answerText===quiz[questionIndex].answer){
+      alert("Correct!");
+    } else {
+      alert("Incorrect!");
+      timeLeft -= 10;
+
+    }
 // want to take value of the button (elementClicked) and compare it to quiz[questionIndex].answer then subtract time, move on to next question
 // compare string of button clicked to answer in object array. if this is equal to this, then deduct 10 seconds off, then go to next question
     questionIndex++;
