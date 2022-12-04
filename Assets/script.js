@@ -107,7 +107,7 @@ var quiz = [
 // dynamically add game rules to welcome container div
 var gameRules = document.createElement("p");
 gameRules.textContent =
-  "This quiz is 4 questions long. You have 60 seconds. If a wrong answer is selected, 10 seconds is deducted from your timer. Your score is equal to the time left on the timer. Good luck!";
+  "This quiz is 4 questions long. You have 60 seconds. Once you select an answer, the next question will prompt. If a wrong answer is selected, 10 seconds is deducted from your timer. Your score is equal to the time left on the timer. Good luck!";
 document.body.appendChild(gameRules);
 welcomeContainer.appendChild(gameRules);
 
