@@ -25,6 +25,17 @@
 // first function - startQuiz, first thing inside should be fx hide welcome message and fx show questions ()
 // fx check answer,
 // make as many fx as possible, separates code
+// if button is clicked, render next question
+// use for loop logic above
+// if matches class name we attribute (p tags - choices), fx render next question
+// createElement, appendChild, conditional statements
+
+// event listener waiting for choices (choices.addEventListener - to run renderQuestion)
+// start quiz, start countdown, clear welcome page, render questions
+// check if answer selected matches correct answer
+// save score
+// save initials
+// save and print score+initials
 
 // timerCountDown -= 10
 
@@ -37,20 +48,23 @@
 
 // init(); // needed to display high scores
 
-// query selectors
+
+
+// QUERY SELECTORS
 var timerEl = document.querySelector(".timer-count");
 var startButton = document.querySelector(".start-button");
 var welcomeContainer = document.querySelector("#welcome-container");
 var questionEl = document.querySelector(".question");
 var answerEl = document.querySelector(".answer-container");
-// var divTags = document.querySelectorAll("div");
 
-// variables
+
+// VARIABLES
 var timer;
 var timerCount;
 var score;
+var questionIndex = 0;
 
-// array of objects with properties for questions and answers
+// ARRAY OF OBJECTS WITH QUESTIONS, CHOICES, ANSWER
 var quiz = [
   {
     question: "What is the web browser?",
@@ -97,7 +111,17 @@ gameRules.textContent =
 document.body.appendChild(gameRules);
 welcomeContainer.appendChild(gameRules);
 
-// timer (setInterval function)
+
+// FUNCTIONS
+
+// after clicking start button, timer starts, welcome container is hidden, function render question is called
+function startQuiz() {
+  countdown();
+  welcomeContainer.setAttribute("class", "hidden");
+  renderQuestion(questionIndex);
+}
+
+// timer
 function countdown() {
   var timeLeft = 60;
   var timeInterval = setInterval(function () {
@@ -110,66 +134,40 @@ function countdown() {
   }, 1000);
 }
 
-var questionIndex = 0;
-function renderFirstQuestion() {
-  // grabbing index of first question
+// render question function displays each question and set of choices
+function renderQuestion(questionIndex) {
 
-  questionEl.textContent = quiz[questionIndex].question[i];
+  questionEl.textContent = quiz[questionIndex].question;
   // create for loop that creates lis, appends them to ul
   // create element in for loop, update text content, append to answer container
-  for (var i = 0; i < quiz[0].choices.length; i++) {
-    console.log(quiz[i].choices);
-    // var liElement = document.createElement("li");
-    // liElement.textContent = quiz[0].choices[i];
-    // liElement.setAttribute("data-index", i);
-    // answerEl.appendChild(liElement);
-    // console.log(liElement);
-
+  for (var i = 0; i < quiz[questionIndex].choices.length; i++) {
     var answerButton = document.createElement("button");
     answerButton.textContent = quiz[questionIndex].choices[i];
     answerEl.appendChild(answerButton);
   }
-
-  questionIndex++;
-  console.log(questionIndex);
 }
 
-// function renderNextQuestion(event) {
-//   var elementClicked = event.target;
+answerEl.addEventListener("click", function(event){ 
+  event.preventDefault(); 
 
-//   if (elementClicked.matches("li")) {
-//     renderNextQuestion();
-//     console.log(elementClicked);
-//   }
-    // if whatever answer choice is clicked matches "li," display the next question
-  
-  //
-  // if button is clicked, render next question
-  // use for loop logic above
-  // if matches class name we attribute (p tags - choices), fx render next question
-  // createElement, appendChild, conditional statements
+var elementClicked = event.target;
+
+  if (elementClicked.matches("button")) {
+    var li = elementClicked.parentElement;
+    console.log(li);
+    renderQuestion(questionIndex);
+  }
+})
 
 
-// event listener waiting for choices (choices.addEventListener - to run renderNextQuestion)
 
-// check if answer selected matches correct answer
-// save score
-// save initials
-// save and print score+initials
+// function checkAnswer() {}
+// questionIndex++;
 
-function checkAnswer() {}
 
-// styling on divTags
-// for (var i = 0; i < divTags.length; i++) {
-//   divTags[i].setAttribute("style", "color:blue; font-size: 30px");
-//  }
 
-// start quiz, start countdown, clear welcome page, render questions
-function startQuiz() {
-  countdown();
-  welcomeContainer.setAttribute("class", "hidden");
-  renderFirstQuestion();
-}
 
-// eventListener - start button
+
+// EVENT LISTENER - START BUTTON
+
 startButton.addEventListener("click", startQuiz);
