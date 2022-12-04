@@ -56,7 +56,6 @@ var formEl = document.querySelector("#initials");
 var inputEl = document.querySelector("#input");
 var yourScore = document.querySelector("#your-score");
 
-
 // VARIABLES
 var timer;
 var timerCount;
@@ -164,49 +163,42 @@ function checkAnswer(event) {
     timeLeft -= 10;
   }
   questionIndex++;
-  if (questionIndex > quiz.length-1) {
+  if (questionIndex > quiz.length - 1) {
     questionContainer.setAttribute("class", "hidden");
     formEl.classList.remove("hidden");
     endgame();
   } else {
     renderQuestion(questionIndex);
   }
-  console.log(quiz.length, "quiz length")
+  console.log(quiz.length, "quiz length");
 
   //  quiz over, out of questions, want to display score, have user enter initials
-
 }
 
 // in endgame function, remove class hidden on initials form
 // FUNCTION TO GET, SET HIGH SCORE AND INITIALS
 
-function endgame(event){
-  event.preventDefault()
+function endgame() {
+  event.preventDefault();
   console.log("got clicked");
   var initials = inputEl.value;
 
+  var highScores = localStorage.getItem("") || "[]";
+  highScores = JSON.parse(highScores);
 
+  var newScore = {
+    score: timeLeft,
+    initials: initials,
+  };
+  console.log(newScore);
 
-var highScores = localStorage.getItem("") || '[]';
-highScores = JSON.parse(highScores);
+  highScores.push(newScore);
 
-var newScore = {
-  score: timeLeft,
-  initials: initials
+  localStorage.setItem("high scores", JSON.stringify(newScore));
 }
-console.log(newScore)
-
-highScores.push(newScore)
-
-localStorage.setItem("high scores", JSON.stringify(newScore))
-
-
-}
-
-
 
 // EVENT LISTENER - START BUTTON, CHECK ANSWER, END GAME
 
 startButton.addEventListener("click", startQuiz);
 answerEl.addEventListener("click", checkAnswer);
-formEl.addEventListener("submit", endgame)
+formEl.addEventListener("submit", endgame);

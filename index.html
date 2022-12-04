@@ -18,10 +18,10 @@
     <link rel="stylesheet" type="text/css" href="./Assets/style.css" />
     <title>Web API Quiz</title>
   </head>
-  <body>
-    <div class="quiz-container">
+  <body class="text-center container">
+    <div class="quiz-container row">
       <!-- group title, start button, rules in one div (h1, p, button) -->
-      <div id="welcome-container">
+      <div class="col" id="welcome-container">
         <h1>Web API Quiz</h1>
         <button type="button" class="btn btn-primary start-button">
           Start Button
@@ -29,8 +29,10 @@
       </div>
 
       <!-- timer -->
-      <div class="timer-count">
-        <h3>TIMER</h3>
+      <div class="container d-flex justify-content-around">
+        <div class=" row timer-count">
+          <h3 class="col">TIMER</h3>
+        </div>
       </div>
     </div>
 
