@@ -45,8 +45,6 @@
 // SHUFFLE QUESTIONS
 // shuffleQuestion = question.sort(() => Math.random() .5 );
 
-
-
 // QUERY SELECTORS
 var timerEl = document.querySelector(".timer-count");
 var startButton = document.querySelector(".start-button");
@@ -54,7 +52,8 @@ var welcomeContainer = document.querySelector("#welcome-container");
 var questionEl = document.querySelector(".question");
 var answerEl = document.querySelector(".answer-container");
 var questionContainer = document.querySelector(".question-container");
-
+var formEl = document.querySelector("#initials");
+var inputEl = document.querySelector("#input");
 
 
 // VARIABLES
@@ -112,7 +111,6 @@ document.body.appendChild(gameRules);
 welcomeContainer.appendChild(gameRules);
 // gameRules.style.backgroundColor =
 
-
 // FUNCTIONS
 
 // after clicking start button, timer starts, welcome container is hidden, function render question is called
@@ -126,7 +124,6 @@ function startQuiz() {
 function countdown() {
   var timeInterval = setInterval(function () {
     timerEl.textContent = timeLeft--;
-    // startButton.disabled = true;
     if (timeLeft === 0) {
       // Stops execution of action at set interval
       clearInterval(timeInterval);
@@ -136,53 +133,75 @@ function countdown() {
 
 // render question function displays each question and set of choices
 
-
-
 function renderQuestion(questionIndex) {
-console.log(questionIndex);
+  console.log(questionIndex);
   questionEl.textContent = quiz[questionIndex].question;
   questionContainer.appendChild(questionEl);
   // create for loop that creates lis, appends them to ul
   // create element in for loop, update text content, append to answer container
-  answerEl.innerHTML = '';
+  answerEl.innerHTML = "";
   for (var i = 0; i < quiz[questionIndex].choices.length; i++) {
     var answerButton = document.createElement("button");
     answerButton.textContent = quiz[questionIndex].choices[i];
     answerEl.appendChild(answerButton);
     questionContainer.appendChild(answerEl);
   }
-
 }
-
-
 
 // take value of the button (elementClicked) and compare it to quiz[questionIndex].answer then subtract time, move on to next question
 function checkAnswer(event) {
-console.log(answerEl);
-var elementClicked = event.target;
+  console.log(answerEl);
+  var elementClicked = event.target;
 
-  if (elementClicked.matches("button")) 
+  if (elementClicked.matches("button"))
     var answerText = elementClicked.textContent;
-    console.log(answerText);
-    if(answerText===quiz[questionIndex].answer){
-      alert("Correct!");
-    } else {
-      alert("Incorrect!");
-      timeLeft -= 10;
-
-    }
-    questionIndex++;
+  console.log(answerText);
+  if (answerText === quiz[questionIndex].answer) {
+    // alert("Correct!");
+  } else {
+    // alert("Incorrect!");
+    timeLeft -= 10;
+  }
+  questionIndex++;
+  if (questionIndex > quiz.length-1) {
+    questionContainer.setAttribute("class", "hidden");
+    formEl.classList.remove("hidden");
+    endgame();
+  } else {
     renderQuestion(questionIndex);
+  }
+  console.log(quiz.length, "quiz length")
 
+  //  quiz over, out of questions, want to display score, have user enter initials
 
 }
 
 // STYLING
 
+// in endgame function, remove class hidden on initials form
 
-
+function endgame(){
+  event.preventDefault()
+  console.log("got clicked");
+  var initials = inputEl.value;
 // FUNCTION TO STORE, GET, RENDER HIGH SCORE ON PAGE
 
+var highScores = localStorage.getItem("") || '[]';
+highScores = JSON.parse(highScores);
+
+// declare and add new high scores
+var newScore = {
+  score: timeLeft,
+  initials: initials
+}
+console.log(newScore)
+
+highScores.push(newScore)
+
+localStorage.setItem("high scores", JSON.stringify(newScore))
+}
+
+formEl.addEventListener("submit", endgame)
 // function saveHighScores(){
 //   var highScores = []
 // ; localStorage.setItem("highScores", JSON.stringify(highScores));}
@@ -203,17 +222,12 @@ var elementClicked = event.target;
 // renderHighScores();
 // });
 
-// // The init() function fires when the page is loaded 
+// // The init() function fires when the page is loaded
 // function init() {
 //   // When the init function is executed, the code inside renderHighScores function will also execute
 //   renderHighScores();
 // }
 // init();
-
-
-
-
-
 
 // EVENT LISTENER - START BUTTON, CHECK ANSWER
 

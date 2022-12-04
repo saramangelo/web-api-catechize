@@ -6,20 +6,20 @@
     --outerspace: #33393f;
     --gin: #e0eae4;
 }
-
+/* BODY */
 body {
     background-image: radial-gradient(var(--outerspace), var(--gin));
 }
-
+/* HIDDEN CLASS TO UTILIZE IN CSS */
 .hidden {
   display: none;
 }
-
+/* DIVS */
 div {
     display: block;
     text-align: center;
 }
-
+/* TIMER BLINKER */
 @-webkit-keyframes blinker {
     from { opacity: 1.0; }
     to { opacity: 0.0; }
@@ -34,11 +34,11 @@ div {
     -webkit-animation-timing-function: cubic-bezier(.5, 0, 1, 1);
     -webkit-animation-duration: 1s;
   }
-
+/* QUIZ CONTAINER */
 .quiz-container {
     border: solid gray;
 }
-
+/* ANSWER CONTAINER */
 .answer-container {
 display: flex;
 flex-direction: column;
