@@ -1,17 +1,17 @@
 // PSUEDOCODE
 // Below is from Module 4 Challenge on BCS:
 // WHEN I click the start button
-    // add event listener button click
+// add event listener button click
 // THEN a timer starts and I am presented with a question
-    // function renderNextQuestion()
+// function renderNextQuestion()
 // WHEN I answer a question
-    // make answer choices buttons
+// make answer choices buttons
 // THEN I am presented with another question
-    // function renderNextQuestion()
+// function renderNextQuestion()
 // WHEN I answer a question incorrectly
-    // compare answers selected to answers in var array
+// compare answers selected to answers in var array
 // THEN time is subtracted from the clock
-    // function time--
+// function time--
 // WHEN all questions are answered or the timer reaches 0
 // THEN the game is over
 // WHEN the game is over
@@ -21,7 +21,7 @@
 // a. click start button, question pops up
 // b. click start button, timer starts
 // in terms of counter, every second, I want to remove 1 from some count variable. remove 10 seconds from incorrect answer.
-// 2. 
+// 2.
 // first function - startQuiz, first thing inside should be fx hide welcome message and fx show questions ()
 // fx check answer,
 // make as many fx as possible, separates code
@@ -37,9 +37,6 @@
 
 // init(); // needed to display high scores
 
-
-
-
 // query selectors
 var timerEl = document.querySelector(".timer-count");
 var startButton = document.querySelector(".start-button");
@@ -52,7 +49,6 @@ var answerEl = document.querySelector(".answer-container");
 var timer;
 var timerCount;
 var score;
-var questionIndex = 0;
 
 // array of objects with properties for questions and answers
 var quiz = [
@@ -96,10 +92,10 @@ var quiz = [
 
 // dynamically add game rules to welcome container div
 var gameRules = document.createElement("p");
-gameRules.textContent = "This quiz is 4 questions long. You have 60 seconds. If a wrong answer is selected, 10 seconds is deducted from your timer. Your score is equal to the time life on the timer. Good luck!";
+gameRules.textContent =
+  "This quiz is 4 questions long. You have 60 seconds. If a wrong answer is selected, 10 seconds is deducted from your timer. Your score is equal to the time left on the timer. Good luck!";
 document.body.appendChild(gameRules);
 welcomeContainer.appendChild(gameRules);
-
 
 // timer (setInterval function)
 function countdown() {
@@ -114,49 +110,45 @@ function countdown() {
   }, 1000);
 }
 
+var questionIndex = 0;
 function renderFirstQuestion() {
-      // grabbing index of next question
-  var currentQuestion = quiz[questionIndex].question;
-  questionEl.textContent = currentQuestion;
+  // grabbing index of first question
+
+  questionEl.textContent = quiz[questionIndex].question[i];
   // create for loop that creates lis, appends them to ul
   // create element in for loop, update text content, append to answer container
   for (var i = 0; i < quiz[0].choices.length; i++) {
-    console.log(quiz[i].choices)
-    var liElement = document.createElement("li");
-    liElement.textContent = quiz[0].choices[i];
-    liElement.setAttribute("data-index", i);
-    answerEl.appendChild(liElement);
-    console.log(liElement);
+    console.log(quiz[i].choices);
+    // var liElement = document.createElement("li");
+    // liElement.textContent = quiz[0].choices[i];
+    // liElement.setAttribute("data-index", i);
+    // answerEl.appendChild(liElement);
+    // console.log(liElement);
 
-    var button = document.createElement("button");
-    button.textContent = quiz[0].choices[i];
-    liElement.appendChild(button);
-    answerEl.appendChild(liElement);
-    console.log(button);
-    // I need this to be in place of the written answer choice. I just want a button.
-    }
+    var answerButton = document.createElement("button");
+    answerButton.textContent = quiz[questionIndex].choices[i];
+    answerEl.appendChild(answerButton);
+  }
 
-    questionIndex++;
-    console.log(questionIndex);
-
+  questionIndex++;
+  console.log(questionIndex);
 }
 
-  function renderNextQuestion(event){
-    var elementClicked = event.target;
-    var liElement = document.createElement("li");
+// function renderNextQuestion(event) {
+//   var elementClicked = event.target;
 
-    if(elementClicked.matches("li")){
-      renderNextQuestion();
-      console.log(elementClicked);
-    // if whatever answer choice is clicked matches "li," display the next question 
-    }
-    // 
-    // if button is clicked, render next question
-    // use for loop logic above 
-    // if matches class name we attribute (p tags - choices), fx render next question
-    // createElement, appendChild, conditional statements
-    
-  }
+//   if (elementClicked.matches("li")) {
+//     renderNextQuestion();
+//     console.log(elementClicked);
+//   }
+    // if whatever answer choice is clicked matches "li," display the next question
+  
+  //
+  // if button is clicked, render next question
+  // use for loop logic above
+  // if matches class name we attribute (p tags - choices), fx render next question
+  // createElement, appendChild, conditional statements
+
 
 // event listener waiting for choices (choices.addEventListener - to run renderNextQuestion)
 
@@ -165,10 +157,7 @@ function renderFirstQuestion() {
 // save initials
 // save and print score+initials
 
-
-function checkAnswer(){
-
-}
+function checkAnswer() {}
 
 // styling on divTags
 // for (var i = 0; i < divTags.length; i++) {
@@ -180,10 +169,7 @@ function startQuiz() {
   countdown();
   welcomeContainer.setAttribute("class", "hidden");
   renderFirstQuestion();
-
 }
-
-
 
 // eventListener - start button
 startButton.addEventListener("click", startQuiz);
