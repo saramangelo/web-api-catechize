@@ -46,6 +46,7 @@ var startButton = document.querySelector(".start-button");
 var welcomeContainer = document.querySelector("#welcome-container");
 var questionEl = document.querySelector(".question");
 var answerEl = document.querySelector(".answer-container");
+// var divTags = document.querySelectorAll("div");
 
 // variables
 var timer;
@@ -93,6 +94,13 @@ var quiz = [
   },
 ];
 
+// dynamically add game rules to welcome container div
+var gameRules = document.createElement("p");
+gameRules.textContent = "This quiz is 4 questions long. You have 60 seconds. If a wrong answer is selected, 10 seconds is deducted from your timer. Your score is equal to the time life on the timer. Good luck!";
+document.body.appendChild(gameRules);
+welcomeContainer.appendChild(gameRules);
+
+
 // timer (setInterval function)
 function countdown() {
   var timeLeft = 60;
@@ -125,7 +133,7 @@ function renderFirstQuestion() {
     liElement.appendChild(button);
     answerEl.appendChild(liElement);
     console.log(button);
-
+    // I need this to be in place of the written answer choice. I just want a button.
     }
 
     questionIndex++;
@@ -134,21 +142,38 @@ function renderFirstQuestion() {
 }
 
   function renderNextQuestion(event){
-    var buttonClicked = event.target;
+    var elementClicked = event.target;
+    var liElement = document.createElement("li");
+
+    if(elementClicked.matches("li")){
+      renderNextQuestion();
+      console.log(elementClicked);
+    // if whatever answer choice is clicked matches "li," display the next question 
+    }
+    // 
     // if button is clicked, render next question
     // use for loop logic above 
-    // if matches class name we attribute (p tags - choices)
+    // if matches class name we attribute (p tags - choices), fx render next question
     // createElement, appendChild, conditional statements
-    console.log(buttonClicked);
+    
   }
 
 // event listener waiting for choices (choices.addEventListener - to run renderNextQuestion)
+
+// check if answer selected matches correct answer
+// save score
+// save initials
+// save and print score+initials
 
 
 function checkAnswer(){
 
 }
 
+// styling on divTags
+// for (var i = 0; i < divTags.length; i++) {
+//   divTags[i].setAttribute("style", "color:blue; font-size: 30px");
+//  }
 
 // start quiz, start countdown, clear welcome page, render questions
 function startQuiz() {
