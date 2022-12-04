@@ -54,6 +54,7 @@ var answerEl = document.querySelector(".answer-container");
 var questionContainer = document.querySelector(".question-container");
 var formEl = document.querySelector("#initials");
 var inputEl = document.querySelector("#input");
+var yourScore = document.querySelector("#your-score");
 
 
 // VARIABLES
