@@ -43,10 +43,11 @@
       <ul class="answer-container"></ul>
     </div>
     <!-- group high scores and input section for entering name in one div (aside) -->
-    <div class="high-scores">
-      <h3 id="your-score">Your Score</h3>
-      <p>This will be a link to high scores</p>
-      <form id="initials" class="hidden">
+
+    <div id="end-screen" class="hidden">
+      <h2>All done!</h2>
+      <p>Your final score is <span id="final-score"></span>.</p>
+      <form id="initials">
         <label for="initials">Initials</label><br />
         <input
           type="text"
@@ -57,6 +58,14 @@
         <input type="submit" value="Submit" />
       </form>
     </div>
+
+    <div class="high-scores">
+      <h3 id="your-score">Your Score</h3>
+      <p>This will be a link to high scores</p>
+    </div>
+
+
+
 
     <script src="Assets/script.js"></script>
   </body>

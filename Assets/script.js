@@ -55,6 +55,7 @@ var questionContainer = document.querySelector(".question-container");
 var formEl = document.querySelector("#initials");
 var inputEl = document.querySelector("#input");
 var yourScore = document.querySelector("#your-score");
+var endScreenEl = document.querySelector("#end-screen");
 
 // VARIABLES
 var timer;
@@ -179,26 +180,45 @@ function checkAnswer(event) {
 // FUNCTION TO GET, SET HIGH SCORE AND INITIALS
 
 function endgame() {
-  event.preventDefault();
+  // event.preventDefault();
   console.log("got clicked");
+ 
+
+  endScreenEl.classList.remove("hidden");
+
+  var finalScoreEl = document.querySelector("#final-score");
+  finalScoreEl.textContent = timeLeft;
+
+
+
+};
+
+function saveScore (){
+
   var initials = inputEl.value;
-
-  var highScores = localStorage.getItem("") || "[]";
-  highScores = JSON.parse(highScores);
-
   var newScore = {
     score: timeLeft,
     initials: initials,
   };
   console.log(newScore);
 
-  highScores.push(newScore);
+
 
   localStorage.setItem("high scores", JSON.stringify(newScore));
 }
+
+  // create new fx get scores, tie this to a link that I create, when user clicks this link, render what you get from local storage onto the screen (create elements)
+
+  function getScores(){
+    var highScoresInitials = localStorage.getItem("") || "[]";
+    highScoresInitials = JSON.parse(highScoresInitials);
+     highScores.push(newScore);
+     console.log(highScoresInitials)
+    }
+  
 
 // EVENT LISTENER - START BUTTON, CHECK ANSWER, END GAME
 
 startButton.addEventListener("click", startQuiz);
 answerEl.addEventListener("click", checkAnswer);
-formEl.addEventListener("submit", endgame);
+formEl.addEventListener("submit", saveScore);
