@@ -2,6 +2,9 @@
   font-family: "Roboto", sans-serif;
 }
 
+body {
+    background-color: rgba(168, 235, 235, 0.648);
+}
 .hidden {
   display: none;
 }

@@ -42,6 +42,8 @@
 // function(event) {
 //     event.preventDefault();
 // init(); // needed to display high scores
+// SHUFFLE QUESTIONS
+// shuffleQuestion = question.sort(() => Math.random() .5 );
 
 
 
@@ -51,6 +53,7 @@ var startButton = document.querySelector(".start-button");
 var welcomeContainer = document.querySelector("#welcome-container");
 var questionEl = document.querySelector(".question");
 var answerEl = document.querySelector(".answer-container");
+var questionContainer = document.querySelector(".question-container");
 
 
 // VARIABLES
@@ -59,7 +62,7 @@ var timerCount;
 var score;
 var questionIndex = 0;
 
-// ARRAY OF OBJECTS WITH QUESTIONS, CHOICES, ANSWER
+// ARRAY OF OBJECTS WITH QUESTIONS, CHOICES, CORRECT ANSWER
 var quiz = [
   {
     question: "What is the web browser?",
@@ -105,6 +108,7 @@ gameRules.textContent =
   "This quiz is 4 questions long. You have 60 seconds. Once you select an answer, the next question will prompt. If a wrong answer is selected, 10 seconds is deducted from your timer. Your score is equal to the time left on the timer. Good luck!";
 document.body.appendChild(gameRules);
 welcomeContainer.appendChild(gameRules);
+// gameRules.style.backgroundColor =
 
 
 // FUNCTIONS
@@ -130,34 +134,44 @@ function countdown() {
 }
 
 // render question function displays each question and set of choices
-function renderQuestion(questionIndex) {
 
+
+
+function renderQuestion(questionIndex) {
+console.log(questionIndex);
   questionEl.textContent = quiz[questionIndex].question;
+  questionContainer.appendChild(questionEl);
   // create for loop that creates lis, appends them to ul
   // create element in for loop, update text content, append to answer container
+  answerEl.innerHTML = '';
   for (var i = 0; i < quiz[questionIndex].choices.length; i++) {
     var answerButton = document.createElement("button");
     answerButton.textContent = quiz[questionIndex].choices[i];
     answerEl.appendChild(answerButton);
+    questionContainer.appendChild(answerEl);
   }
+
 }
 
-answerEl.addEventListener("click", function(event){ 
-  event.preventDefault(); 
+answerEl.addEventListener("click", checkAnswer);
 
+
+function checkAnswer(event) {
+console.log(answerEl);
 var elementClicked = event.target;
 
-  if (elementClicked.matches("button")) {
-    var li = elementClicked.parentElement;
-    console.log(li);
-    renderQuestion(questionIndex);
-  }
-})
-
-
-
-// function checkAnswer() {}
+  if (elementClicked.matches("button")) 
+    var answerText = elementClicked.value;
+    console.log(elementClicked.value);
+// want to take value of the button (elementClicked) and compare it to quiz[questionIndex].answer then subtract time, move on to next question
+// compare string of button clicked to answer in object array. if this is equal to this, then deduct 10 seconds off, then go to next question
 // questionIndex++;
+    questionIndex++;
+    renderQuestion(questionIndex);
+}
+
+
+
 
 
 
