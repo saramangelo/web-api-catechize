@@ -123,10 +123,11 @@ function startQuiz() {
 // timer
 function countdown() {
   var timeInterval = setInterval(function () {
-    timerEl.textContent = timeLeft--;
+    timerEl.textContent = "Time left: " + timeLeft--;
     if (timeLeft === 0) {
       // Stops execution of action at set interval
       clearInterval(timeInterval);
+      timerEl.innerHTML = "";
     }
   }, 1000);
 }
@@ -157,9 +158,7 @@ function checkAnswer(event) {
     var answerText = elementClicked.textContent;
   console.log(answerText);
   if (answerText === quiz[questionIndex].answer) {
-    // alert("Correct!");
   } else {
-    // alert("Incorrect!");
     timeLeft -= 10;
   }
   questionIndex++;
@@ -181,19 +180,14 @@ function checkAnswer(event) {
 function endgame() {
   // event.preventDefault();
   console.log("got clicked");
- 
 
   endScreenEl.classList.remove("hidden");
 
   var finalScoreEl = document.querySelector("#final-score");
   finalScoreEl.textContent = timeLeft;
+}
 
-
-
-};
-
-function saveScore (){
-
+function saveScore() {
   var initials = inputEl.value;
   var newScore = {
     score: timeLeft,
@@ -203,16 +197,14 @@ function saveScore (){
   localStorage.setItem("high scores", JSON.stringify(newScore));
 }
 
-  // create new fx get scores, tie this to a link that I create, when user clicks this link, render what you get from local storage onto the screen (create elements)
+// create new fx get scores, tie this to a link that I create, when user clicks this link, render what you get from local storage onto the screen (create elements)
 
-  formEl.addEventListener("submit", function getScores(){
-    var highScoresInitials = localStorage.getItem("highScoreInitials") || "[]";
-    highScoresInitials = JSON.parse(highScoresInitials);
-     highScores.push(newScore);
-     console.log(highScoresInitials)
-    });
-
-  
+formEl.addEventListener("submit", function getScores() {
+  var highScoresInitials = localStorage.getItem("highScoreInitials") || "[]";
+  highScoresInitials = JSON.parse(highScoresInitials);
+  highScores.push(newScore);
+  console.log(highScoresInitials);
+});
 
 // EVENT LISTENER - START BUTTON, CHECK ANSWER, END GAME
 
