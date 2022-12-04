@@ -176,20 +176,19 @@ function checkAnswer(event) {
 
 }
 
-// STYLING
-
 // in endgame function, remove class hidden on initials form
+// FUNCTION TO GET, SET HIGH SCORE AND INITIALS
 
-function endgame(){
+function endgame(event){
   event.preventDefault()
   console.log("got clicked");
   var initials = inputEl.value;
-// FUNCTION TO STORE, GET, RENDER HIGH SCORE ON PAGE
+
+
 
 var highScores = localStorage.getItem("") || '[]';
 highScores = JSON.parse(highScores);
 
-// declare and add new high scores
 var newScore = {
   score: timeLeft,
   initials: initials
@@ -199,37 +198,14 @@ console.log(newScore)
 highScores.push(newScore)
 
 localStorage.setItem("high scores", JSON.stringify(newScore))
+
+
 }
 
-formEl.addEventListener("submit", endgame)
-// function saveHighScores(){
-//   var highScores = []
-// ; localStorage.setItem("highScores", JSON.stringify(highScores));}
-// function renderHighScores() {
-//   // Use JSON.parse() to convert text to JavaScript object
-//   var highScores = JSON.parse(localStorage.getItem("highScore"));
-//   // Check if data is returned, if not exit out of the function
-//   if (highScore !== null) {
-//  var highScores = document.querySelector(".high-scores").innerHTML
-//   } else {
-//     return;
-//   }
-// }
 
-// saveButton.addEventListener("click", function(event) {
-// event.preventDefault();
-// saveHighScores();
-// renderHighScores();
-// });
 
-// // The init() function fires when the page is loaded
-// function init() {
-//   // When the init function is executed, the code inside renderHighScores function will also execute
-//   renderHighScores();
-// }
-// init();
-
-// EVENT LISTENER - START BUTTON, CHECK ANSWER
+// EVENT LISTENER - START BUTTON, CHECK ANSWER, END GAME
 
 startButton.addEventListener("click", startQuiz);
 answerEl.addEventListener("click", checkAnswer);
+formEl.addEventListener("submit", endgame)
