@@ -2,9 +2,15 @@
   font-family: "Roboto", sans-serif;
 }
 
-/* body {
+:root {
+    --outerspace: #33393f;
+    --gin: #e0eae4;
+}
+
+body {
     background-image: radial-gradient(var(--outerspace), var(--gin));
-} */
+}
+
 .hidden {
   display: none;
 }
@@ -14,8 +20,26 @@ div {
     text-align: center;
 }
 
-.timer-count {
+@-webkit-keyframes blinker {
+    from { opacity: 1.0; }
+    to { opacity: 0.0; }
+  }
+  
+  .timer-count {
     position: fixed;
     top: 10px;
     right: 10px;
+    -webkit-animation-name: blinker;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: cubic-bezier(.5, 0, 1, 1);
+    -webkit-animation-duration: 1s;
+  }
+
+.quiz-container {
+    border: solid gray;
+}
+
+.answer-container {
+display: flex;
+flex-direction: column;
 }

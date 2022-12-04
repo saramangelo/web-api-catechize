@@ -154,9 +154,9 @@ console.log(questionIndex);
 
 }
 
-answerEl.addEventListener("click", checkAnswer);
 
 
+// take value of the button (elementClicked) and compare it to quiz[questionIndex].answer then subtract time, move on to next question
 function checkAnswer(event) {
 console.log(answerEl);
 var elementClicked = event.target;
@@ -171,11 +171,15 @@ var elementClicked = event.target;
       timeLeft -= 10;
 
     }
-// want to take value of the button (elementClicked) and compare it to quiz[questionIndex].answer then subtract time, move on to next question
-// compare string of button clicked to answer in object array. if this is equal to this, then deduct 10 seconds off, then go to next question
     questionIndex++;
     renderQuestion(questionIndex);
+
+
 }
+
+// STYLING
+
+
 
 // FUNCTION TO STORE, GET, RENDER HIGH SCORE ON PAGE
 
@@ -201,7 +205,7 @@ var elementClicked = event.target;
 
 // // The init() function fires when the page is loaded 
 // function init() {
-//   // When the init function is executed, the code inside renderLastGrade function will also execute
+//   // When the init function is executed, the code inside renderHighScores function will also execute
 //   renderHighScores();
 // }
 // init();
@@ -211,6 +215,7 @@ var elementClicked = event.target;
 
 
 
-// EVENT LISTENER - START BUTTON
+// EVENT LISTENER - START BUTTON, CHECK ANSWER
 
 startButton.addEventListener("click", startQuiz);
+answerEl.addEventListener("click", checkAnswer);
