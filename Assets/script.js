@@ -59,9 +59,7 @@ var scoreEl = document.querySelector(".high-scores");
 
 
 // VARIABLES
-var timer;
 var timerCount;
-var score;
 var questionIndex = 0;
 var timeLeft = 60;
 var scoresArray = JSON.parse(localStorage.getItem("high scores")) || [];
@@ -71,38 +69,38 @@ var quiz = [
   {
     question: "What is the web browser?",
     choices: [
-      "A program used to access information on the World Wide Web",
-      "A place where spiders meet up",
-      "Google",
-      "None of the above",
+      "a. A program used to access information on the World Wide Web",
+      "b. A place where spiders meet up",
+      "c. Google",
+      "d. None of the above",
     ],
-    answer: "A program used to access information on the World Wide Web",
+    answer: "a. A program used to access information on the World Wide Web",
   },
 
   {
     question: "What does 'URL' stand for?",
     choices: [
-      "U R Lazy",
-      "Ugly Robot Language",
-      "Uninformed Relatable Lists",
-      "Uniform Resource Locator",
+      "a. U R Lazy",
+      "b. Ugly Robot Language",
+      "c. Uninformed Relatable Lists",
+      "d. Uniform Resource Locator",
     ],
-    answer: "Uniform Resource Locator",
+    answer: "d. Uniform Resource Locator",
   },
   {
     question: "Where do EvenListeners belong on the JavaScript file?",
     choices: [
-      "At the top",
-      "Only inside for loops",
-      "At the bottom",
-      "They don't belong on the JavaScript file",
+      "a. At the top",
+      "b. Only inside for loops",
+      "c. At the bottom",
+      "d. They don't belong on the JavaScript file",
     ],
-    answer: "At the bottom",
+    answer: "c. At the bottom",
   },
   {
     question: "We can manipulate the HTML elements on the page via what?",
-    choices: ["The DOT", "The DOM", "The DON", "The MOD"],
-    answer: "The DOM",
+    choices: ["a. The DOT", "b. The DOM", "c. The DON", "d. The MOD"],
+    answer: "b. The DOM",
   },
 ];
 
@@ -112,7 +110,6 @@ gameRules.textContent =
   "This quiz is 4 questions long. You have 60 seconds. Once you select an answer, the next question will prompt. If a wrong answer is selected, 10 seconds is deducted from your timer. Your score is equal to the time left on the timer. Good luck!";
 document.body.appendChild(gameRules);
 welcomeContainer.appendChild(gameRules);
-// gameRules.style.backgroundColor =
 
 // FUNCTIONS
 
@@ -123,7 +120,7 @@ function startQuiz() {
   renderQuestion(questionIndex);
 }
 
-// timer
+// TIMER
 function countdown() {
   var timeInterval = setInterval(function () {
     timeLeft--;
@@ -133,6 +130,7 @@ function countdown() {
       clearInterval(timeInterval);
     }
   }, 1000);
+
 }
 
 // render question function displays each question and set of choices
@@ -207,7 +205,8 @@ function saveScore(event) {
 
 
 // need local storage get item!!
-
+// for loop iterates object data, generates a number per object data, add numbers to that data,  
+// scoreEl.textContent = "High Scores: " + JSON.stringify(scoresArray);
 // for (var i = 0; i < scoresArray.length; i++){
 //   var scoreObj = JSON.stringify(scoresArray);
   
@@ -219,8 +218,7 @@ function saveScore(event) {
 
 }
 
-// for loop iterates object data, generates a number per object data, add numbers to that data,  
-// scoreEl.textContent = "High Scores: " + JSON.stringify(scoresArray);
+
 
 
 

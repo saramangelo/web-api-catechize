@@ -43,17 +43,11 @@ div {
   -webkit-animation-duration: 1s;
 }
 
-/*  WELCOME CONTAINER */
-.welcome-container {
 
-}
-
-/* QUIZ CONTAINER */
-.quiz-container {
-    
-}
 /* ANSWER CONTAINER */
 .answer-container {
-  display: flex;
+    margin: 50px;
+    display: flex;
   flex-direction: column;
+
 }
