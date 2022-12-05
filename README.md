@@ -6,11 +6,11 @@ This Web API timed, multiple-choice quiz runs in the browser, featuring dynamica
 
 ## Screenshot
 
-![catechize-ss.png](/web-api-quiz/Assets/catechize-ss.png)
+![catechize-ss.png](/Assets/catechize-ss.png)
 
 ## Link to webpage:
 
-https://saramangelo.github.io/web-api-quiz/
+https://saramangelo.github.io/web-api-catechize/
 
 ## License
 
