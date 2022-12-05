@@ -207,6 +207,7 @@ function saveScore(event) {
 
   scoreEl.textContent = "High Scores: " + JSON.stringify(scoresArray);
 
+
   // need local storage get item!!
   // for loop iterates object data, generates a number per object data, add numbers to that data,
   // scoreEl.textContent = "High Scores: " + JSON.stringify(scoresArray);
