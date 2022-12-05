@@ -1,5 +1,7 @@
 * {
-  font-family: font-family: 'Bebas Neue', cursive;
+  /* font-family: font-family: 'Bebas Neue', cursive */
+  /* font-family: 'Abril Fatface', cursive; */
+  font-family: 'Permanent Marker', cursive
 }
 
 /* BODY */
@@ -34,6 +36,7 @@ div {
 
 .timer-count {
 color: red;
+  font-weight: bold;
   position: absolue;
   top: 10px;
   right: 10px;
