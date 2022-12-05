@@ -130,7 +130,6 @@ function countdown() {
       clearInterval(timeInterval);
     }
   }, 1000);
-
 }
 
 // render question function displays each question and set of choices
