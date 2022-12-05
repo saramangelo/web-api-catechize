@@ -63,7 +63,7 @@ var timerCount;
 var score;
 var questionIndex = 0;
 var timeLeft = 60;
-var scoresArray = JSON.parse(localStorage.getItem("high scores")) || [];
+var scoresArray = [];
 
 // ARRAY OF OBJECTS WITH QUESTIONS, CHOICES, CORRECT ANSWER
 var quiz = [
@@ -197,15 +197,11 @@ function saveScore(event) {
     score: timeLeft,
     initials: initials,
   };
-  
-  // scoresArray.push(newScore);
   console.log(newScore);
-  localStorage.setItem("high scores", JSON.stringify(scoresArray));
- console.log(scoresArray)
+  localStorage.setItem("high scores", JSON.stringify(newScore));
+  scoreEl.textContent = "High Scores: " + initials + ": " + timeLeft;
 
 
- scoreEl.textContent = "High Scores: " + initials + ": " + timeLeft;
-// console.log(scoresArray)
   endScreenEl.classList.add("hidden");
 }
 
