@@ -55,6 +55,7 @@ var questionContainer = document.querySelector(".question-container");
 var formEl = document.querySelector("#initials");
 var inputEl = document.querySelector("#input");
 var endScreenEl = document.querySelector("#end-screen");
+var scoreEl = document.querySelector(".high-scores");
 
 // VARIABLES
 var timer;
@@ -188,7 +189,8 @@ function endgame() {
   finalScoreEl.textContent = timeLeft;
 }
 
-function saveScore() {
+function saveScore(event) {
+  event.preventDefault();
   var initials = inputEl.value;
   var newScore = {
     score: timeLeft,
@@ -196,6 +198,9 @@ function saveScore() {
   };
   console.log(newScore);
   localStorage.setItem("high scores", JSON.stringify(newScore));
+  
+  scoreEl.textContent = "High Scores: " + "\r\n" + initials + ": " + timeLeft;
+  endScreenEl.classList.add("hidden");
 }
 
 // create new fx get scores, tie this to a link that I create, when user clicks this link, render what you get from local storage onto the screen (create elements)

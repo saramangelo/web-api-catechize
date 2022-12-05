@@ -1,5 +1,6 @@
 * {
   font-family: "Roboto", sans-serif;
+
 }
 
 :root {
@@ -7,9 +8,12 @@
     --gin: #e0eae4;
 }
 /* BODY */
+
 body {
     background-image: radial-gradient(var(--outerspace), var(--gin));
+
 }
+
 /* HIDDEN CLASS TO UTILIZE IN CSS */
 .hidden {
   display: none;

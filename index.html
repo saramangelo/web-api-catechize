@@ -18,10 +18,10 @@
     <link rel="stylesheet" type="text/css" href="./Assets/style.css" />
     <title>Web API Quiz</title>
   </head>
-  <body class="text-center container">
-    <div class="quiz-container row">
+  <body class="text-center">
+    <div class="quiz-container">
       <!-- group title, start button, rules in one div (h1, p, button) -->
-      <div class="col" id="welcome-container">
+      <div id="welcome-container">
         <h1>Web API Quiz</h1>
         <button type="button" class="btn btn-primary start-button">
           Start Button
@@ -30,7 +30,7 @@
 
       <!-- timer -->
       <div class="container justify-end">
-        <div class="row timer-count">
+        <div class="timer-count">
         </div>
       </div>
     </div>
@@ -58,10 +58,9 @@
       </form>
     </div>
 
-    <div class="high-scores">
-      <p>High Scores:</p>
-      <span>This will be a link to high scores</span>
-    </div>
+<!-- High scores -->
+      <span class="high-scores"></span>
+
 
     <script src="Assets/script.js"></script>
   </body>
