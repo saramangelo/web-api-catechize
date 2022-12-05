@@ -57,7 +57,6 @@ var inputEl = document.querySelector("#input");
 var endScreenEl = document.querySelector("#end-screen");
 var scoreEl = document.querySelector(".high-scores");
 
-
 // VARIABLES
 var timerCount;
 var questionIndex = 0;
@@ -151,12 +150,12 @@ function renderQuestion(questionIndex) {
 
 // take value of the button (elementClicked) and compare it to quiz[questionIndex].answer then subtract time, move on to next question
 function checkAnswer(event) {
-  console.log(answerEl);
+  // console.log(answerEl);
   var elementClicked = event.target;
 
   if (elementClicked.matches("button"))
     var answerText = elementClicked.textContent;
-  console.log(answerText);
+  // console.log(answerText);
   if (answerText === quiz[questionIndex].answer) {
   } else {
     timeLeft -= 10;
@@ -170,7 +169,7 @@ function checkAnswer(event) {
   } else {
     renderQuestion(questionIndex);
   }
-  console.log(quiz.length, "quiz length");
+  // console.log(quiz.length, "quiz length");
 
   //  quiz over, out of questions, want to display score, have user enter initials
 }
@@ -179,8 +178,7 @@ function checkAnswer(event) {
 // FUNCTION TO GET, SET HIGH SCORE AND INITIALS
 
 function endgame() {
-
-  console.log("got clicked");
+  // console.log("got clicked");
 
   endScreenEl.classList.remove("hidden");
 
@@ -195,33 +193,24 @@ function saveScore(event) {
     score: timeLeft,
     initials: initials,
   };
-  console.log(scoresArray);
+  // console.log(scoresArray);
   scoresArray.push(newScore);
 
   localStorage.setItem("high scores", JSON.stringify(scoresArray));
 
   scoreEl.textContent = "High Scores: " + JSON.stringify(scoresArray);
 
+  // need local storage get item!!
+  // for loop iterates object data, generates a number per object data, add numbers to that data,
+  // scoreEl.textContent = "High Scores: " + JSON.stringify(scoresArray);
+  // for (var i = 0; i < scoresArray.length; i++){
+  //   var scoreObj = JSON.stringify(scoresArray);
 
-// need local storage get item!!
-// for loop iterates object data, generates a number per object data, add numbers to that data,  
-// scoreEl.textContent = "High Scores: " + JSON.stringify(scoresArray);
-// for (var i = 0; i < scoresArray.length; i++){
-//   var scoreObj = JSON.stringify(scoresArray);
-  
-//    scoreEl.textContent = "High Scores: " + scoreObj[i]
-//  }
+  //    scoreEl.textContent = "High Scores: " + scoreObj[i]
+  //  }
 
   endScreenEl.classList.add("hidden");
-
-
 }
-
-
-
-
-
-
 
 // function renderScores(){
 //   var lastScore = JSON.parse(localStorage.getItem("lastScore"));
@@ -242,4 +231,3 @@ function saveScore(event) {
 startButton.addEventListener("click", startQuiz);
 answerEl.addEventListener("click", checkAnswer);
 formEl.addEventListener("submit", saveScore);
-
