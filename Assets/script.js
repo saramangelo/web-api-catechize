@@ -124,9 +124,14 @@ function countdown() {
   var timeInterval = setInterval(function () {
     timeLeft--;
     timerEl.textContent = "Time left: " + timeLeft;
-    if (timeLeft === 0) {
+    if (timeLeft <= 0) {
       // Stops execution of action at set interval
       clearInterval(timeInterval);
+      timeLeft = 0;
+      timerEl.innerHTML = "";
+      endgame();
+      questionContainer.innerHTML = "";
+      
     }
   }, 1000);
 }
@@ -185,7 +190,7 @@ function endgame() {
   endScreenEl.classList.remove("hidden");
 
   var finalScoreEl = document.querySelector("#final-score");
-  finalScoreEl.textContent = timeLeft;
+  finalScoreEl.textContent = " " + timeLeft;
 }
 
 function saveScore(event) {
@@ -207,6 +212,9 @@ function saveScore(event) {
   // scoreEl.textContent = "High Scores: " + JSON.stringify(scoresArray);
   // for (var i = 0; i < scoresArray.length; i++){
   //   var scoreObj = JSON.stringify(scoresArray);
+  // console.log(each object)
+  // console.log(each prop of each obj)
+  // make a p, set text content to the initial property, get them on the page
 
   //    scoreEl.textContent = "High Scores: " + scoreObj[i]
   //  }
