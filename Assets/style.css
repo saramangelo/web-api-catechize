@@ -1,13 +1,11 @@
 * {
   font-family: "Roboto", sans-serif;
-
 }
 
 /* BODY */
 
 body {
-    background-color:lightblue
-
+  background-color: lightblue;
 }
 
 /* HIDDEN CLASS TO UTILIZE IN CSS */
@@ -15,38 +13,47 @@ body {
   display: none;
 }
 
-
 /* FOR END-SCREEN */
 .hide {
-    display:none;
+  display: none;
 }
 /* DIVS */
 div {
-    display: block;
-    text-align: center;
+  display: block;
+  text-align: center;
 }
 /* TIMER BLINKER */
 @-webkit-keyframes blinker {
-    from { opacity: 1.0; }
-    to { opacity: 0.0; }
+  from {
+    opacity: 1;
   }
-  
-  .timer-count {
-    position: absolue;
-    top: 10px;
-    right: 10px;
-    font-size: 1rem;
-    -webkit-animation-name: blinker;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-timing-function: cubic-bezier(.5, 0, 1, 1);
-    -webkit-animation-duration: 1s;
+  to {
+    opacity: 0;
   }
+}
+
+.timer-count {
+  position: absolue;
+  top: 10px;
+  right: 10px;
+  font-size: 1rem;
+  -webkit-animation-name: blinker;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: cubic-bezier(0.5, 0, 1, 1);
+  -webkit-animation-duration: 1s;
+}
+
+/*  WELCOME CONTAINER */
+.welcome-container {
+
+}
+
 /* QUIZ CONTAINER */
 .quiz-container {
-
+    
 }
 /* ANSWER CONTAINER */
 .answer-container {
-display: flex;
-flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }

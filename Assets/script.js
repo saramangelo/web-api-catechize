@@ -57,13 +57,14 @@ var inputEl = document.querySelector("#input");
 var endScreenEl = document.querySelector("#end-screen");
 var scoreEl = document.querySelector(".high-scores");
 
+
 // VARIABLES
 var timer;
 var timerCount;
 var score;
 var questionIndex = 0;
 var timeLeft = 60;
-var scoresArray = [];
+var scoresArray = JSON.parse(localStorage.getItem("high scores")) || [];
 
 // ARRAY OF OBJECTS WITH QUESTIONS, CHOICES, CORRECT ANSWER
 var quiz = [
@@ -197,13 +198,29 @@ function saveScore(event) {
     score: timeLeft,
     initials: initials,
   };
-  console.log(newScore);
-  localStorage.setItem("high scores", JSON.stringify(newScore));
-  scoreEl.textContent = "High Scores: " + initials + ": " + timeLeft;
+  console.log(scoresArray);
+  scoresArray.push(newScore);
 
+  localStorage.setItem("high scores", JSON.stringify(scoresArray));
+
+  scoreEl.textContent = "High Scores: " + JSON.stringify(scoresArray);
+
+
+// need local storage get item!!
+
+// for (var i = 0; i < scoresArray.length; i++){
+//   var scoreObj = JSON.stringify(scoresArray);
+  
+//    scoreEl.textContent = "High Scores: " + scoreObj[i]
+//  }
 
   endScreenEl.classList.add("hidden");
+
+
 }
+
+// for loop iterates object data, generates a number per object data, add numbers to that data,  
+// scoreEl.textContent = "High Scores: " + JSON.stringify(scoresArray);
 
 
 
