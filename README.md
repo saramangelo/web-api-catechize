@@ -1,4 +1,4 @@
-# web-api-quiz
+# web-api-catechize
 
 ## Description
 
