@@ -54,6 +54,12 @@ color: red;
 
 }
 
+.answer-button {
+  background-color: rgb(76, 146, 211);
+  padding: 25px;
+  width: 25%;
+}
+
 p {
     margin: auto;
     display: flex;

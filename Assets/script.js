@@ -142,6 +142,7 @@ function renderQuestion(questionIndex) {
   answerEl.innerHTML = "";
   for (var i = 0; i < quiz[questionIndex].choices.length; i++) {
     var answerButton = document.createElement("button");
+    answerButton.classList.add("answer-button");
     answerButton.setAttribute("style", "border-radius: 8px");
     answerButton.textContent = quiz[questionIndex].choices[i];
     answerEl.appendChild(answerButton);
