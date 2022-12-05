@@ -33,6 +33,7 @@ div {
 }
 
 .timer-count {
+color: red;
   position: absolue;
   top: 10px;
   right: 10px;
@@ -47,7 +48,15 @@ div {
 /* ANSWER CONTAINER */
 .answer-container {
     margin: 50px;
+    padding: 0;
     display: flex;
   flex-direction: column;
 
+}
+
+p {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    width: 75%;
 }
