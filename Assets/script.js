@@ -63,6 +63,7 @@ var timerCount;
 var score;
 var questionIndex = 0;
 var timeLeft = 60;
+var scoresArray = JSON.parse(localStorage.getItem("high scores")) || [];
 
 // ARRAY OF OBJECTS WITH QUESTIONS, CHOICES, CORRECT ANSWER
 var quiz = [
@@ -196,12 +197,26 @@ function saveScore(event) {
     score: timeLeft,
     initials: initials,
   };
-  console.log(newScore);
-  localStorage.setItem("high scores", JSON.stringify(newScore));
   
-  scoreEl.textContent = "High Scores: " + "\r\n" + initials + ": " + timeLeft;
+  // scoresArray.push(newScore);
+  console.log(newScore);
+  localStorage.setItem("high scores", JSON.stringify(scoresArray));
+ console.log(scoresArray)
+
+
+ scoreEl.textContent = "High Scores: " + initials + ": " + timeLeft;
+// console.log(scoresArray)
   endScreenEl.classList.add("hidden");
 }
+
+
+
+
+
+// function renderScores(){
+//   var lastScore = JSON.parse(localStorage.getItem("lastScore"));
+//   scoreEl.textContent = "High Scores: " + newScore + ": " + lastScore;
+// }
 
 // create new fx get scores, tie this to a link that I create, when user clicks this link, render what you get from local storage onto the screen (create elements)
 
@@ -217,3 +232,4 @@ function saveScore(event) {
 startButton.addEventListener("click", startQuiz);
 answerEl.addEventListener("click", checkAnswer);
 formEl.addEventListener("submit", saveScore);
+
