@@ -60,7 +60,7 @@ var scoreEl = document.querySelector(".high-scores");
 // VARIABLES
 var timerCount;
 var questionIndex = 0;
-var timeLeft = 30;
+var timeLeft = 60;
 var scoresArray = JSON.parse(localStorage.getItem("high scores")) || [];
 
 // ARRAY OF OBJECTS WITH QUESTIONS, CHOICES, CORRECT ANSWER
