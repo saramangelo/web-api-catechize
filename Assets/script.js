@@ -133,7 +133,6 @@ function countdown() {
       timerEl.innerHTML = "";
       endgame();
       questionContainer.innerHTML = "";
-      
     }
   }, 1000);
 }
@@ -141,7 +140,7 @@ function countdown() {
 // render question function displays each question and set of choices
 
 function renderQuestion(questionIndex) {
-  console.log(questionIndex);
+  // console.log(questionIndex);
   questionEl.textContent = quiz[questionIndex].question;
   questionContainer.appendChild(questionEl);
   // create for loop that creates lis, appends them to ul
@@ -212,28 +211,25 @@ function saveScore(event) {
 
   // scoreEl.textContent = "High Scores: " + JSON.stringify(scoresArray);
 
-for (var i = 0; i < scoresArray.length; i++){
-
-var scoresList = document.createElement("p");
-scoresList.textContent = "High Score: " + scoresArray[i].initials + ": " + scoresArray[i].score;
-endScreenEl.append(scoresList);
-console.log(scoresList);
+  for (var i = 0; i < scoresArray.length; i++) {
+    var scoresList = document.createElement("p");
+    scoresList.textContent =
+      "Score: " + scoresArray[i].initials + ": " + scoresArray[i].score;
+    endScreenEl.append(scoresList);
+    // console.log(scoresList);
+  }
 }
-}
-  // need local storage get item!!
-  // for loop iterates object data, generates a number per object data, add numbers to that data,
-  // scoreEl.textContent = "High Scores: " + JSON.stringify(scoresArray);
-  // for (var i = 0; i < scoresArray.length; i++){
-  //   var scoreObj = JSON.stringify(scoresArray);
-  // console.log(each object)
-  // console.log(each prop of each obj)
-  // make a p, set text content to the initial property, get them on the page
+// need local storage get item!!
+// for loop iterates object data, generates a number per object data, add numbers to that data,
+// scoreEl.textContent = "High Scores: " + JSON.stringify(scoresArray);
+// for (var i = 0; i < scoresArray.length; i++){
+//   var scoreObj = JSON.stringify(scoresArray);
+// console.log(each object)
+// console.log(each prop of each obj)
+// make a p, set text content to the initial property, get them on the page
 
-  //    scoreEl.textContent = "High Scores: " + scoreObj[i]
-  //  }
-
-
-
+//    scoreEl.textContent = "High Scores: " + scoreObj[i]
+//  }
 
 // function renderScores(){
 //   var lastScore = JSON.parse(localStorage.getItem("lastScore"));
