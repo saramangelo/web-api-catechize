@@ -60,7 +60,7 @@ var scoreEl = document.querySelector(".high-scores");
 // VARIABLES
 var timerCount;
 var questionIndex = 0;
-var timeLeft = 60;
+var timeLeft = 30;
 var scoresArray = JSON.parse(localStorage.getItem("high scores")) || [];
 
 // ARRAY OF OBJECTS WITH QUESTIONS, CHOICES, CORRECT ANSWER
@@ -120,8 +120,10 @@ function startQuiz() {
 }
 
 // TIMER
+var timeInterval;
+
 function countdown() {
-  var timeInterval = setInterval(function () {
+  timeInterval = setInterval(function () {
     timeLeft--;
     timerEl.textContent = "Time left: " + timeLeft;
     if (timeLeft <= 0) {
@@ -172,6 +174,7 @@ function checkAnswer(event) {
     questionContainer.setAttribute("class", "hidden");
     formEl.classList.remove("hidden");
     timerEl.setAttribute("class", "hidden");
+    clearInterval(timeInterval);
     endgame();
   } else {
     renderQuestion(questionIndex);
@@ -186,28 +189,37 @@ function checkAnswer(event) {
 
 function endgame() {
   // console.log("got clicked");
-
   endScreenEl.classList.remove("hidden");
 
   var finalScoreEl = document.querySelector("#final-score");
   finalScoreEl.textContent = " " + timeLeft;
 }
+endScreenEl.classList.add("hidden");
 
 function saveScore(event) {
+  formEl.classList.add("hidden");
   event.preventDefault();
   var initials = inputEl.value;
   var newScore = {
     score: timeLeft,
     initials: initials,
   };
+
   // console.log(scoresArray);
   scoresArray.push(newScore);
 
   localStorage.setItem("high scores", JSON.stringify(scoresArray));
 
-  scoreEl.textContent = "High Scores: " + JSON.stringify(scoresArray);
+  // scoreEl.textContent = "High Scores: " + JSON.stringify(scoresArray);
 
+for (var i = 0; i < scoresArray.length; i++){
 
+var scoresList = document.createElement("p");
+scoresList.textContent = "High Score: " + scoresArray[i].initials + ": " + scoresArray[i].score;
+endScreenEl.append(scoresList);
+console.log(scoresList);
+}
+}
   // need local storage get item!!
   // for loop iterates object data, generates a number per object data, add numbers to that data,
   // scoreEl.textContent = "High Scores: " + JSON.stringify(scoresArray);
@@ -220,8 +232,8 @@ function saveScore(event) {
   //    scoreEl.textContent = "High Scores: " + scoreObj[i]
   //  }
 
-  endScreenEl.classList.add("hidden");
-}
+
+
 
 // function renderScores(){
 //   var lastScore = JSON.parse(localStorage.getItem("lastScore"));
@@ -236,6 +248,7 @@ function saveScore(event) {
 //   highScores.push(newScore);
 //   console.log(highScoresInitials);
 // });
+// later - add restart button?
 
 // EVENT LISTENER - START BUTTON, CHECK ANSWER, END GAME
 
