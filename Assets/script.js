@@ -214,7 +214,7 @@ function saveScore(event) {
   for (var i = 0; i < scoresArray.length; i++) {
     var scoresList = document.createElement("p");
     scoresList.textContent =
-      "Score: " + scoresArray[i].initials + ": " + scoresArray[i].score;
+      scoresArray[i].initials + ": " + scoresArray[i].score;
     endScreenEl.append(scoresList);
     // console.log(scoresList);
   }
