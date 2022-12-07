@@ -6,7 +6,7 @@ This Web API timed, multiple-choice quiz runs in the browser, featuring dynamica
 
 ## Screenshot
 
-![catechize-ss.png](./assets/catechize-ss.png)
+![catechize-ss.png](./Assets/catechize-ss.png)
 
 ## Link to webpage:
 
