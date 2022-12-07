@@ -2,7 +2,7 @@
 
 ## Description
 
-This Web API timed, multiple-choice quiz runs in the browser, featuring dynamically updated HTML and CSS powered by JavaScript. When the user clicks on the start button, a timer starts and they are presented with a question. When the user selects an answer, they are presented with the next question. If the user selects a wrong answer, time is subtracted from the timer. If the time runs out or all questions have been answered, then the game is over and the user can save their initials and score. Utilizing local storage via the DOM and JavaScript, the user is able to view past scores so that they can gauge their progress compared to their peers. 
+This Web API timed, multiple-choice quiz runs in the browser, featuring dynamically updated HTML and CSS powered by JavaScript. When the user clicks on the start button, a timer starts and they are presented with a question. When the user selects an answer, they are presented with the next question. If the user selects a wrong answer, time is subtracted from the timer. If the time runs out or all questions have been answered, then the game is over and the user can save their initials and score. Utilizing local storage via the DOM and JavaScript, the user is able to view past scores so that they can gauge their progress compared to their peers.
 
 ## Screenshot
 
