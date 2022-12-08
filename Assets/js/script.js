@@ -138,11 +138,10 @@ function countdown() {
 }
 
 // render question function displays each question and set of choices
-  // create for loop that creates lis, appends them to ul
-  // create element in for loop, update text content, append to answer container
+// create for loop that creates lis, appends them to ul
+// create element in for loop, update text content, append to answer container
 
 function renderQuestion(questionIndex) {
-
   questionEl.textContent = quiz[questionIndex].question;
   questionContainer.appendChild(questionEl);
 
@@ -159,7 +158,6 @@ function renderQuestion(questionIndex) {
 
 // take value of the button (elementClicked) and compare it to quiz[questionIndex].answer then subtract time, move on to next question
 function checkAnswer(event) {
-
   var elementClicked = event.target;
 
   if (elementClicked.matches("button"))
@@ -180,16 +178,12 @@ function checkAnswer(event) {
     renderQuestion(questionIndex);
   }
 
-
   //  quiz over, out of questions, want to display score, have user enter initials
-
 }
 
-
 // FUNCTION TO GET, SET HIGH SCORE AND INITIALS
-  // in endgame function, remove class hidden on initials form
+// in endgame function, remove class hidden on initials form
 function endgame() {
-
   endScreenEl.classList.remove("hidden");
 
   var finalScoreEl = document.querySelector("#final-score");
@@ -206,22 +200,17 @@ function saveScore(event) {
     initials: initials,
   };
 
-
   scoresArray.push(newScore);
 
   localStorage.setItem("high scores", JSON.stringify(scoresArray));
-
-
 
   for (var i = 0; i < scoresArray.length; i++) {
     var scoresList = document.createElement("p");
     scoresList.textContent =
       scoresArray[i].initials + ": " + scoresArray[i].score;
     endScreenEl.append(scoresList);
-
   }
 }
-
 
 // EVENT LISTENER - START BUTTON, CHECK ANSWER, END GAME
 
