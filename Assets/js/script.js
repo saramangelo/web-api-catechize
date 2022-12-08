@@ -138,13 +138,14 @@ function countdown() {
 }
 
 // render question function displays each question and set of choices
-
-function renderQuestion(questionIndex) {
-  // console.log(questionIndex);
-  questionEl.textContent = quiz[questionIndex].question;
-  questionContainer.appendChild(questionEl);
   // create for loop that creates lis, appends them to ul
   // create element in for loop, update text content, append to answer container
+
+function renderQuestion(questionIndex) {
+
+  questionEl.textContent = quiz[questionIndex].question;
+  questionContainer.appendChild(questionEl);
+
   answerEl.innerHTML = "";
   for (var i = 0; i < quiz[questionIndex].choices.length; i++) {
     var answerButton = document.createElement("button");
@@ -158,12 +159,12 @@ function renderQuestion(questionIndex) {
 
 // take value of the button (elementClicked) and compare it to quiz[questionIndex].answer then subtract time, move on to next question
 function checkAnswer(event) {
-  // console.log(answerEl);
+
   var elementClicked = event.target;
 
   if (elementClicked.matches("button"))
     var answerText = elementClicked.textContent;
-  // console.log(answerText);
+
   if (answerText === quiz[questionIndex].answer) {
   } else {
     timeLeft -= 10;
@@ -178,16 +179,17 @@ function checkAnswer(event) {
   } else {
     renderQuestion(questionIndex);
   }
-  // console.log(quiz.length, "quiz length");
+
 
   //  quiz over, out of questions, want to display score, have user enter initials
+
 }
 
-// in endgame function, remove class hidden on initials form
-// FUNCTION TO GET, SET HIGH SCORE AND INITIALS
 
+// FUNCTION TO GET, SET HIGH SCORE AND INITIALS
+  // in endgame function, remove class hidden on initials form
 function endgame() {
-  // console.log("got clicked");
+
   endScreenEl.classList.remove("hidden");
 
   var finalScoreEl = document.querySelector("#final-score");
@@ -204,47 +206,22 @@ function saveScore(event) {
     initials: initials,
   };
 
-  // console.log(scoresArray);
+
   scoresArray.push(newScore);
 
   localStorage.setItem("high scores", JSON.stringify(scoresArray));
 
-  // scoreEl.textContent = "High Scores: " + JSON.stringify(scoresArray);
+
 
   for (var i = 0; i < scoresArray.length; i++) {
     var scoresList = document.createElement("p");
     scoresList.textContent =
       scoresArray[i].initials + ": " + scoresArray[i].score;
     endScreenEl.append(scoresList);
-    // console.log(scoresList);
+
   }
 }
-// need local storage get item!!
-// for loop iterates object data, generates a number per object data, add numbers to that data,
-// scoreEl.textContent = "High Scores: " + JSON.stringify(scoresArray);
-// for (var i = 0; i < scoresArray.length; i++){
-//   var scoreObj = JSON.stringify(scoresArray);
-// console.log(each object)
-// console.log(each prop of each obj)
-// make a p, set text content to the initial property, get them on the page
 
-//    scoreEl.textContent = "High Scores: " + scoreObj[i]
-//  }
-
-// function renderScores(){
-//   var lastScore = JSON.parse(localStorage.getItem("lastScore"));
-//   scoreEl.textContent = "High Scores: " + newScore + ": " + lastScore;
-// }
-
-// create new fx get scores, tie this to a link that I create, when user clicks this link, render what you get from local storage onto the screen (create elements)
-
-// formEl.addEventListener("submit", function getScores() {
-//   var highScoresInitials = localStorage.getItem("highScoreInitials") || "[]";
-//   highScoresInitials = JSON.parse(highScoresInitials);
-//   highScores.push(newScore);
-//   console.log(highScoresInitials);
-// });
-// later - add restart button?
 
 // EVENT LISTENER - START BUTTON, CHECK ANSWER, END GAME
 
