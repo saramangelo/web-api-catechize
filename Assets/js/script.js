@@ -230,7 +230,7 @@ function showScoresHideWelcome (){
   
   }
 }
-
+// function to go back to welcome container to reset quiz
 function resetQuiz(){
 endScreenEl.classList.add("hidden");
 welcomeContainer.classList.remove("hidden");
