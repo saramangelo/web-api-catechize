@@ -22,6 +22,11 @@
     <title>Web API Quiz</title>
   </head>
   <body class="col-12 text-center">
+    <div>
+      <button type="button" class="btn btn-primary scores-button">
+        Click for Scores List
+      </button>
+    </div>
     <div class="quiz-container">
       <!-- group title, start button, rules in one div (h1, p, button) -->
       <div id="welcome-container">
@@ -29,6 +34,7 @@
           WEB API <br />
           CATECHIZE
         </h1>
+
         <button type="button" class="btn btn-primary start-button">
           Start Quiz
         </button>
@@ -68,8 +74,12 @@
     </div>
 
     <!-- High scores -->
-    <span class="high-scores"></span>
-
+    <span class="high-scores hidden"></span>
+    <div class="high-scores-page hidden">
+      <button type="button" class="btn btn-primary go-back-button">
+        Go Back
+      </button>
+    </div>
     <script src="./Assets/js/script.js"></script>
   </body>
 </html>

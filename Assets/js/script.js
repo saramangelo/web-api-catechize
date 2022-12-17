@@ -56,6 +56,9 @@ var formEl = document.querySelector("#initials");
 var inputEl = document.querySelector("#input");
 var endScreenEl = document.querySelector("#end-screen");
 var scoreEl = document.querySelector(".high-scores");
+var scoresButton = document.querySelector(".scores-button");
+var backButton = document.querySelector(".go-back-button");
+var highScoresPage = document.querySelector(".high-scores-page");
 
 // VARIABLES
 var timerCount;
@@ -192,6 +195,7 @@ function endgame() {
 endScreenEl.classList.add("hidden");
 
 function saveScore(event) {
+  highScoresPage.classList.remove("hidden");
   formEl.classList.add("hidden");
   event.preventDefault();
   var initials = inputEl.value;
@@ -212,8 +216,32 @@ function saveScore(event) {
   }
 }
 
+// function hide welcome container
+function showScoresHideWelcome (){
+  highScoresPage.classList.remove("hidden");
+  welcomeContainer.setAttribute("class", "hidden");
+  scoreEl.classList.remove("hidden");
+  scoreEl.innerHTML = "<h2>Scores List</h2>";
+  for (var i = 0; i < scoresArray.length; i++) {
+    var scoresList = document.createElement("p");
+    scoresList.textContent =
+      scoresArray[i].initials + ": " + scoresArray[i].score;
+    scoreEl.append(scoresList);
+  
+  }
+}
+
+function resetQuiz(){
+endScreenEl.classList.add("hidden");
+welcomeContainer.classList.remove("hidden");
+scoreEl.classList.add("hidden");
+highScoresPage.classList.add("hidden");
+}
+
 // EVENT LISTENER - START BUTTON, CHECK ANSWER, END GAME
 
 startButton.addEventListener("click", startQuiz);
 answerEl.addEventListener("click", checkAnswer);
 formEl.addEventListener("submit", saveScore);
+scoresButton.addEventListener("click", showScoresHideWelcome);
+backButton.addEventListener("click", resetQuiz);
